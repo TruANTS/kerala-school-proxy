@@ -4,6 +4,10 @@ const fetch = require("node-fetch");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get("/", (req, res) => {
+  res.send("Kerala School Proxy is running.");
+});
+
 app.get("/api/schools/:district", async (req, res) => {
   const district = encodeURIComponent(req.params.district);
   const url = `https://kerala-schools.onrender.com/api/v1/schools/${district}`;
